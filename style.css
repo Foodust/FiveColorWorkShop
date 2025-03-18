@@ -398,3 +398,16 @@ footer {
     padding-top: 7rem;
   }
 }
+
+.section.section_address.lst {
+  display: none;
+}
+
+#location {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-info {
+  display: flex;
+}
