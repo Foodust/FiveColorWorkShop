@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오색공방</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f8f1e5;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid #e0d3c3;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: #5c4b3e;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            color: #8c735a;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: #5c4b3e;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 1.5rem;
+        }
+
+        .nav-links a {
+            color: #f8f1e5;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e0d3c3;
+        }
+
+        .main-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background-color: #e0d3c3;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8c735a;
+        }
+
+        .about-section,
+        .products-section,
+        .location-section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            color: #5c4b3e;
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #8c735a;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product {
+            border: 1px solid #e0d3c3;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #f8f1e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8c735a;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem;
+            color: #5c4b3e;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #5c4b3e;
+        }
+
+        .location-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .map {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background-color: #f8f1e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8c735a;
+        }
+
+        .address {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-label {
+            font-weight: bold;
+            color: #5c4b3e;
+            display: inline-block;
+            width: 80px;
+        }
+
+        footer {
+            background-color: #5c4b3e;
+            color: #f8f1e5;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .social-links li {
+            margin: 0 1rem;
+        }
+
+        .social-links a {
+            color: #f8f1e5;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #e0d3c3;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">오색공방</div>
+        <div class="tagline">정성과 사랑이 담긴 특별한 공간</div>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#about">소개</a></li>
+            <li><a href="#products">상품</a></li>
+            <li><a href="#location">위치</a></li>
+            <li><a href="#contact">연락처</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-section">
+        <section class="hero">
+            <div class="hero-image">
+                <p>가게 대표 이미지</p>
+            </div>
+            <h1>어머니의 정성이 담긴 특별한 가게에 오신 것을 환영합니다</h1>
+            <p>수십 년간 변함없는 맛과 정성으로 고객님들의 사랑을 받아온 오색공방입니다.<br>
+                대대로 전해 내려오는 비법 레시피와 엄선된 재료로 건강하고 맛있는 상품을 제공해 드립니다.</p>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>가게 소개</h2>
+            <p>1985년에 문을 연 오색공방는 30년이 넘는 세월 동안 한결같은 정성으로 고객님들께 최고의 상품을 제공해 왔습니다. 어머니의 손맛을 그대로 담아낸 전통 방식의 제조 과정과 엄선된 국내산
+                원재료를 사용하여 건강하고 맛있는 제품을 만들고 있습니다.</p>
+            <p>가족의 건강을 생각하는 마음으로 방부제와 인공 첨가물 없이 자연 그대로의 맛을 살린 상품들은 다양한 연령층의 고객님들께 사랑받고 있습니다. 특히 어머니의 특제 소스와 비법 레시피는 타
+                업체에서는 맛볼 수 없는 특별함을 자랑합니다.</p>
+            <p>오랜 단골 고객님들의 변함없는 사랑과 입소문을 통해 알려진 신규 고객님들까지, 모든 분들께 감사드리며 앞으로도 변함없는 맛과 정성으로 보답하겠습니다.</p>
+        </section>
+
+        <section id="products" class="products-section">
+            <h2>대표 상품</h2>
+            <div class="products">
+                <div class="product">
+                    <div class="product-image">
+                        <p>상품 이미지 1</p>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">어머니의 특제 김치</h3>
+                        <p class="product-description">30년 전통의 비법 레시피로 만든 시원하고 깊은 맛의 김치입니다.</p>
+                        <p class="product-price">15,000원/kg</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">
+                        <p>상품 이미지 2</p>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">수제 떡갈비</h3>
+                        <p class="product-description">100% 국내산 한우로 만든 부드럽고 풍미 가득한 수제 떡갈비입니다.</p>
+                        <p class="product-price">25,000원/10개</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">
+                        <p>상품 이미지 3</p>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">계절 장아찌</h3>
+                        <p class="product-description">제철 채소로 만든 아삭하고 시원한 전통 방식의 장아찌입니다.</p>
+                        <p class="product-price">12,000원/병</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">
+                        <p>상품 이미지 4</p>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">수제 약과</h3>
+                        <p class="product-description">천연 꿀과 국내산 밀가루로 만든 달콤하고 바삭한 전통 약과입니다.</p>
+                        <p class="product-price">18,000원/10개</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="location-section">
+            <h2>찾아오시는 길</h2>
+            <div class="location-info">
+                <div class="map">
+                    <p>지도 이미지</p>
+                </div>
+                <div class="address">
+                    <h3>오색공방</h3>
+                    <p>정성과 사랑이 담긴 특별한 공간</p>
+                    <div class="contact-item">
+                        <span class="contact-label">주소:</span> 경기도 의정부시 동일로 397 (우) 11719
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">전화:</span> 010-4076-4487
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">영업시간:</span> 평일 10:00 - 20:00
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">휴무일:</span> 매주 월요일
+                    </div>
+                    <p>주변 정류장: 발곡역 2번 출구에서 도보 10분<br>
+                        주차: 건물 밖 지상 주차장 이용 가능</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <h3>오색공방</h3>
+        <p>경기도 의정부시 동일로 397 (우) 11719<br>
+            전화: 010-4076-4487<br>
+            이메일: woosung0827@naver.com</p>
+
+        <ul class="social-links">
+            <li><a href="#">인스타그램</a></li>
+            <li><a href="#">네이버 블로그</a></li>
+            <li><a href="#">카카오톡 채널</a></li>
+        </ul>
+
+        <p class="copyright">© 2025 오색공방. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
