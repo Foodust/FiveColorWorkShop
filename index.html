@@ -5,232 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오색공방</title>
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.6;
-        }
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // 스크롤 애니메이션을 위한 JavaScript
+        document.addEventListener('DOMContentLoaded', function () {
+            // 애니메이션 요소 클래스 추가
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('fade-in');
+            });
 
-        header {
-            background-color: #f8f1e5;
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom: 1px solid #e0d3c3;
-        }
+            // 상품 요소에 애니메이션 딜레이 추가
+            const products = document.querySelectorAll('.product');
+            products.forEach((product, index) => {
+                product.style.animationDelay = `${0.1 * index}s`;
+            });
 
-        .logo {
-            font-size: 2.5rem;
-            color: #5c4b3e;
-            margin-bottom: 0.5rem;
-        }
+            // 스크롤 감지 함수
+            function checkScroll() {
+                const triggerBottom = window.innerHeight * 0.8;
 
-        .tagline {
-            color: #8c735a;
-            font-size: 1.2rem;
-        }
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
 
-        nav {
-            background-color: #5c4b3e;
-            padding: 1rem 0;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin: 0 1.5rem;
-        }
-
-        .nav-links a {
-            color: #f8f1e5;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #e0d3c3;
-        }
-
-        .main-section {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .hero-image {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            background-color: #e0d3c3;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8c735a;
-        }
-
-        .about-section,
-        .products-section,
-        .location-section {
-            margin-bottom: 4rem;
-        }
-
-        h2 {
-            color: #5c4b3e;
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: #8c735a;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .product {
-            border: 1px solid #e0d3c3;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .product-image {
-            height: 200px;
-            background-color: #f8f1e5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8c735a;
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            margin: 0 0 0.5rem;
-            color: #5c4b3e;
-        }
-
-        .product-description {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .product-price {
-            font-weight: bold;
-            color: #5c4b3e;
-        }
-
-        .location-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .map {
-            flex: 1;
-            min-width: 300px;
-            height: 300px;
-            background-color: #f8f1e5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8c735a;
-        }
-
-        .address {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-item {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-label {
-            font-weight: bold;
-            color: #5c4b3e;
-            display: inline-block;
-            width: 80px;
-        }
-
-        footer {
-            background-color: #5c4b3e;
-            color: #f8f1e5;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .social-links {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            padding: 0;
-            margin: 1.5rem 0;
-        }
-
-        .social-links li {
-            margin: 0 1rem;
-        }
-
-        .social-links a {
-            color: #f8f1e5;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            color: #e0d3c3;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                text-align: center;
+                    if (sectionTop < triggerBottom) {
+                        section.classList.add('visible');
+                    }
+                });
             }
 
-            .nav-links li {
-                margin: 0.5rem 0;
-            }
+            // 초기 확인 및 스크롤 이벤트 리스너 추가
+            checkScroll();
+            window.addEventListener('scroll', checkScroll);
 
-            .hero-image {
-                height: 300px;
-            }
-        }
-    </style>
+            // 스크롤 시 헤더 스타일 변경
+            const header = document.querySelector('header');
+            const nav = document.querySelector('nav');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.style.padding = '0.8rem 0';
+                    nav.style.top = '3.8rem';
+                } else {
+                    header.style.padding = '1.5rem 0';
+                    nav.style.top = '5.5rem';
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
     <header>
-        <div class="logo">오색공방</div>
-        <div class="tagline">정성과 사랑이 담긴 특별한 공간</div>
+        <div class="logo">
+            <img src="image/logo.png" alt="오색공방 로고" height="40">
+        </div>
     </header>
 
     <nav>
